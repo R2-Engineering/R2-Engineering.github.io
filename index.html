@@ -3233,11 +3233,25 @@
             <!-- Services Modal (same pattern as projects modal) -->
             <div data-services-modal="" aria-hidden="true" class="projects-modal-wrap">
               <div class="projects-modal-container container">
-                <button data-service-close="" class="modal-close-btn">
+                <!-- Left arrow - Previous -->
+                <button data-service-prev="" class="modal-close-btn service-nav-left">
                   <div class="icon-color">
                     <span data-wf--icon-size--variant="1em" class="icon ph ph-arrow-circle-left">​</span>
                   </div>
                 </button>
+                <!-- X - Close (center) -->
+                <button data-service-close="" class="modal-close-btn service-nav-center">
+                  <div class="icon-color">
+                    <span data-wf--icon-size--variant="1em" class="icon ph ph-x-circle">​</span>
+                  </div>
+                </button>
+                <!-- Right arrow - Next -->
+                <button data-service-next="" class="modal-close-btn service-nav-right">
+                  <div class="icon-color">
+                    <span data-wf--icon-size--variant="1em" class="icon ph ph-arrow-circle-right">​</span>
+                  </div>
+                </button>
+
                 <div class="services-modal-content">
                   <!-- Service 1 -->
                   <div data-service-detail="Service 1" data-service-active="false" class="service-detail">
@@ -3252,17 +3266,6 @@
                     <img src="https://raw.githubusercontent.com/R2-Engineering/R2-Engineering.github.io/refs/heads/main/images/R2_Service1.avif" alt="Service 3" class="service-detail-img">
                   </div>
                 </div>
-                <!-- Navigation buttons -->
-                <button data-service-prev="" class="projects-nav-btn is--prev">
-                  <div class="icon-color">
-                    <span data-wf--icon-size--variant="1em" class="icon ph ph-caret-left">​</span>
-                  </div>
-                </button>
-                <button data-service-next="" class="projects-nav-btn is--next">
-                  <div class="icon-color">
-                    <span data-wf--icon-size--variant="1em" class="icon ph ph-caret-right">​</span>
-                  </div>
-                </button>
               </div>
             </div>
 
@@ -3292,6 +3295,43 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+              }
+
+              /* Service navigation buttons - positioned at top of image */
+              .service-nav-left {
+                position: absolute;
+                top: 2rem;
+                left: 2rem;
+              }
+
+              .service-nav-center {
+                position: absolute;
+                top: 2rem;
+                left: 50%;
+                transform: translateX(-50%);
+              }
+
+              .service-nav-right {
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+              }
+
+              /* On mobile, adjust button positioning */
+              @media (max-width: 767px) {
+                .service-nav-left {
+                  top: 1rem;
+                  left: 1rem;
+                }
+
+                .service-nav-center {
+                  top: 1rem;
+                }
+
+                .service-nav-right {
+                  top: 1rem;
+                  right: 1rem;
+                }
               }
             </style>
 
