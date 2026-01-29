@@ -3071,51 +3071,55 @@
                       z-index: 3;
                     }
 
-                    /* Mobile adjustments - show all 3 cards in a row with slight overlap */
+                    /* Mobile adjustments - stack like papers with heavy overlap */
                     @media (max-width: 767px) {
                       .doc-image-parent {
-                        overflow-x: visible;
+                        overflow: visible;
                         padding: 2rem 0;
                       }
 
                       .doc-image-wrap {
                         cursor: pointer;
-                        width: 60%;
+                        width: 70%;
                         flex-shrink: 0;
                       }
 
+                      /* Stack them like papers with slight rotation */
                       .doc-image-wrap.is--1 {
-                        transform: scale(0.9) rotateZ(3deg) translateX(0%);
+                        transform: scale(1) rotateZ(-4deg) translateX(0%);
                         z-index: 3;
                       }
 
                       .doc-image-wrap.is--2 {
-                        transform: scale(0.9) rotateZ(-2deg) translateX(-25%);
+                        transform: scale(0.95) rotateZ(2deg) translateX(-60%);
                         z-index: 2;
                       }
 
                       .doc-image-wrap.is--3 {
-                        transform: scale(0.9) rotateZ(3deg) translateX(-50%);
+                        transform: scale(0.9) rotateZ(-3deg) translateX(-120%);
                         z-index: 1;
                       }
 
-                      /* Disable the left class transforms on mobile */
+                      /* Override any left class transforms on mobile */
                       .doc-image-parent.left .doc-image-wrap.is--1,
                       .doc-image-parent.left .doc-image-wrap.is--2,
                       .doc-image-parent.left .doc-image-wrap.is--3 {
-                        transform: none;
+                        opacity: 1 !important;
                       }
 
                       .doc-image-parent.left .doc-image-wrap.is--1 {
-                        transform: scale(0.9) rotateZ(3deg) translateX(0%);
+                        transform: scale(1) rotateZ(-4deg) translateX(0%);
+                        z-index: 3;
                       }
 
                       .doc-image-parent.left .doc-image-wrap.is--2 {
-                        transform: scale(0.9) rotateZ(-2deg) translateX(-25%);
+                        transform: scale(0.95) rotateZ(2deg) translateX(-60%);
+                        z-index: 2;
                       }
 
                       .doc-image-parent.left .doc-image-wrap.is--3 {
-                        transform: scale(0.9) rotateZ(3deg) translateX(-50%);
+                        transform: scale(0.9) rotateZ(-3deg) translateX(-120%);
+                        z-index: 1;
                       }
                     }
 
@@ -3149,60 +3153,6 @@
                         transform: translateX(10%) rotateZ(6deg) scale(0.9);
                       }
                     }
-
-                    /* Service card modal styles */
-                    .service-modal {
-                      display: none;
-                      position: fixed;
-                      inset: 0;
-                      background-color: rgba(0, 0, 0, 0.95);
-                      z-index: 1000;
-                      justify-content: center;
-                      align-items: center;
-                      padding: 1rem;
-                    }
-
-                    .service-modal.active {
-                      display: flex;
-                    }
-
-                    .service-modal img {
-                      max-width: 100%;
-                      max-height: 100%;
-                      object-fit: contain;
-                      border-radius: 0.5rem;
-                    }
-
-                    .service-modal-close {
-                      position: absolute;
-                      top: 1rem;
-                      right: 1rem;
-                      background: white;
-                      border: 2px solid #333;
-                      width: 48px;
-                      height: 48px;
-                      border-radius: 50%;
-                      cursor: pointer;
-                      font-size: 28px;
-                      line-height: 1;
-                      z-index: 1001;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      color: #333;
-                      font-weight: bold;
-                      transition: all 0.2s ease;
-                    }
-
-                    .service-modal-close:hover {
-                      background: #333;
-                      color: white;
-                      transform: scale(1.1);
-                    }
-
-                    .service-modal-close:active {
-                      transform: scale(0.95);
-                    }
                   </style>
                 </div>
                 <div
@@ -3210,7 +3160,7 @@
                   aria-hidden="true"
                   class="doc-image-parent"
                 >
-                  <div class="doc-image-wrap is--1">
+                  <div class="doc-image-wrap is--1" data-service-item="Service 1">
                     <div
                       data-wf--image--variant="base"
                       class="img-component"
@@ -3232,7 +3182,7 @@
                     </div>
                     <div class="doc-image-shadow"></div>
                   </div>
-                  <div class="doc-image-wrap is--2">
+                  <div class="doc-image-wrap is--2" data-service-item="Service 2">
                     <div
                       data-wf--image--variant="base"
                       class="img-component"
@@ -3254,7 +3204,7 @@
                     </div>
                     <div class="doc-image-shadow"></div>
                   </div>
-                  <div class="doc-image-wrap is--3">
+                  <div class="doc-image-wrap is--3" data-service-item="Service 3">
                     <div
                       data-wf--image--variant="base"
                       class="img-component"
@@ -3280,77 +3230,169 @@
               </div>
             </div>
 
-            <!-- Service Card Modal -->
-            <div id="serviceModal" class="service-modal">
-              <button class="service-modal-close" aria-label="Close modal">&times;</button>
-              <img id="serviceModalImg" src="" alt="Service detail">
+            <!-- Services Modal (same pattern as projects modal) -->
+            <div data-services-modal="" aria-hidden="true" class="projects-modal-wrap">
+              <div class="projects-modal-container container">
+                <button data-service-close="" class="modal-close-btn">
+                  <div class="icon-color">
+                    <span data-wf--icon-size--variant="1em" class="icon ph ph-arrow-circle-left">​</span>
+                  </div>
+                </button>
+                <div class="services-modal-content">
+                  <!-- Service 1 -->
+                  <div data-service-detail="Service 1" data-service-active="false" class="service-detail">
+                    <img src="https://raw.githubusercontent.com/R2-Engineering/R2-Engineering.github.io/refs/heads/main/images/R2_Service1.avif" alt="Service 1" class="service-detail-img">
+                  </div>
+                  <!-- Service 2 -->
+                  <div data-service-detail="Service 2" data-service-active="false" class="service-detail">
+                    <img src="https://raw.githubusercontent.com/R2-Engineering/R2-Engineering.github.io/refs/heads/main/images/R2_Service1.avif" alt="Service 2" class="service-detail-img">
+                  </div>
+                  <!-- Service 3 -->
+                  <div data-service-detail="Service 3" data-service-active="false" class="service-detail">
+                    <img src="https://raw.githubusercontent.com/R2-Engineering/R2-Engineering.github.io/refs/heads/main/images/R2_Service1.avif" alt="Service 3" class="service-detail-img">
+                  </div>
+                </div>
+                <!-- Navigation buttons -->
+                <button data-service-prev="" class="projects-nav-btn is--prev">
+                  <div class="icon-color">
+                    <span data-wf--icon-size--variant="1em" class="icon ph ph-caret-left">​</span>
+                  </div>
+                </button>
+                <button data-service-next="" class="projects-nav-btn is--next">
+                  <div class="icon-color">
+                    <span data-wf--icon-size--variant="1em" class="icon ph ph-caret-right">​</span>
+                  </div>
+                </button>
+              </div>
             </div>
 
+            <style>
+              .service-detail {
+                display: none;
+                width: 100%;
+                height: 100%;
+                justify-content: center;
+                align-items: center;
+              }
+
+              .service-detail[data-service-active="true"] {
+                display: flex;
+              }
+
+              .service-detail-img {
+                max-width: 90%;
+                max-height: 90vh;
+                object-fit: contain;
+                border-radius: 0.5rem;
+              }
+
+              .services-modal-content {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              }
+            </style>
+
             <script>
-              // Service card modal functionality
-              function openServiceModal(imageSrc) {
-                console.log('Opening modal with image:', imageSrc);
-                const modal = document.getElementById('serviceModal');
-                const modalImg = document.getElementById('serviceModalImg');
-                modalImg.src = imageSrc;
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-              }
+              // Services modal functionality (adapted from projects modal)
+              (function() {
+                const serviceCards = document.querySelectorAll('[data-service-item]');
+                const servicesModal = document.querySelector('[data-services-modal]');
+                const closeBtn = document.querySelector('[data-service-close]');
+                const serviceDetails = document.querySelectorAll('[data-service-detail]');
+                const prevBtn = document.querySelector('[data-service-prev]');
+                const nextBtn = document.querySelector('[data-service-next]');
 
-              function closeServiceModal(event) {
-                console.log('Closing modal');
-                if (event) {
-                  event.stopPropagation();
+                let activeServiceIndex = 0;
+                const serviceNames = ['Service 1', 'Service 2', 'Service 3'];
+
+                function openModal(serviceName) {
+                  activeServiceIndex = serviceNames.indexOf(serviceName);
+                  showService(activeServiceIndex);
+                  servicesModal.classList.add('is--active');
+                  servicesModal.setAttribute('aria-hidden', 'false');
+                  document.body.style.overflow = 'hidden';
                 }
-                const modal = document.getElementById('serviceModal');
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-              }
 
-              // Add click handlers to service cards
-              document.addEventListener('DOMContentLoaded', function() {
-                console.log('Setting up service card click handlers');
-                const serviceCards = document.querySelectorAll('.doc-image-wrap');
-                console.log('Found', serviceCards.length, 'service cards');
+                function closeModal() {
+                  servicesModal.classList.remove('is--active');
+                  servicesModal.setAttribute('aria-hidden', 'true');
+                  document.body.style.overflow = '';
+                  serviceDetails.forEach(detail => detail.setAttribute('data-service-active', 'false'));
+                }
 
-                serviceCards.forEach((card, index) => {
-                  card.addEventListener('click', function(e) {
-                    console.log('Card', index + 1, 'clicked');
-                    const img = this.querySelector('.u-img-cover');
-                    if (img && img.src) {
-                      console.log('Found image:', img.src);
-                      openServiceModal(img.src);
-                    } else {
-                      console.log('No image found in card', index + 1);
-                    }
+                function showService(index) {
+                  serviceDetails.forEach(detail => detail.setAttribute('data-service-active', 'false'));
+                  serviceDetails[index].setAttribute('data-service-active', 'true');
+                }
+
+                function navigatePrev() {
+                  activeServiceIndex = (activeServiceIndex - 1 + serviceNames.length) % serviceNames.length;
+                  showService(activeServiceIndex);
+                }
+
+                function navigateNext() {
+                  activeServiceIndex = (activeServiceIndex + 1) % serviceNames.length;
+                  showService(activeServiceIndex);
+                }
+
+                // Set up click handlers
+                serviceCards.forEach(card => {
+                  card.addEventListener('click', function() {
+                    const serviceName = this.getAttribute('data-service-item');
+                    openModal(serviceName);
                   });
                   card.style.cursor = 'pointer';
                 });
 
-                // Close button handler
-                const closeBtn = document.querySelector('.service-modal-close');
+                // Close button
                 if (closeBtn) {
-                  closeBtn.addEventListener('click', closeServiceModal);
-                  console.log('Close button handler added');
+                  closeBtn.addEventListener('click', closeModal);
                 }
 
-                // Close modal on background click
-                const modal = document.getElementById('serviceModal');
-                if (modal) {
-                  modal.addEventListener('click', function(e) {
-                    if (e.target === this) {
-                      closeServiceModal();
-                    }
+                // Navigation buttons
+                if (prevBtn) {
+                  prevBtn.addEventListener('click', navigatePrev);
+                }
+                if (nextBtn) {
+                  nextBtn.addEventListener('click', navigateNext);
+                }
+
+                // Keyboard navigation
+                document.addEventListener('keydown', function(e) {
+                  if (!servicesModal.classList.contains('is--active')) return;
+
+                  if (e.key === 'Escape') {
+                    closeModal();
+                  } else if (e.key === 'ArrowLeft') {
+                    navigatePrev();
+                  } else if (e.key === 'ArrowRight') {
+                    navigateNext();
+                  }
+                });
+
+                // Touch/swipe support
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                if (servicesModal) {
+                  servicesModal.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                  });
+
+                  servicesModal.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    handleSwipe();
                   });
                 }
 
-                // Close modal on Escape key
-                document.addEventListener('keydown', function(e) {
-                  if (e.key === 'Escape') {
-                    closeServiceModal();
-                  }
-                });
-              });
+                function handleSwipe() {
+                  if (touchEndX < touchStartX - 50) navigateNext();
+                  if (touchEndX > touchStartX + 50) navigatePrev();
+                }
+              })();
             </script>
           </div>
         </section>
