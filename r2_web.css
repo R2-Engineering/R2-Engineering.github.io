@@ -3237,9 +3237,6 @@ figcaption {
     flex: none;
     width: 90%;
   }
-  .doc-image-wrap.is--1 {
-    pointer-events: none;
-  }
   .doc-image-parent {
     justify-content: flex-start;
     align-items: center;

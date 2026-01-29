@@ -3071,19 +3071,51 @@
                       z-index: 3;
                     }
 
-                    /* Mobile adjustments - reduce overlap so all 3 cards are visible */
+                    /* Mobile adjustments - show all 3 cards in a row with slight overlap */
                     @media (max-width: 767px) {
-                      :root {
-                        --card-1-init: scale(0.85) rotateZ(3deg) translateX(0%);
-                        --card-1-end: scale(0.8) rotateZ(-3deg) translateX(-35%);
-                        --card-2-init: scale(0.85) rotateZ(-3deg) translateX(0%);
-                        --card-2-end: scale(0.85) rotateZ(3deg) translateX(-35%);
-                        --card-3-init: scale(0.85) rotateZ(-3deg) translateX(0%);
-                        --card-3-end: scale(0.85) rotateZ(3deg) translateX(-35%) translateY(3%);
+                      .doc-image-parent {
+                        overflow-x: visible;
+                        padding: 2rem 0;
                       }
 
                       .doc-image-wrap {
                         cursor: pointer;
+                        width: 60%;
+                        flex-shrink: 0;
+                      }
+
+                      .doc-image-wrap.is--1 {
+                        transform: scale(0.9) rotateZ(3deg) translateX(0%);
+                        z-index: 3;
+                      }
+
+                      .doc-image-wrap.is--2 {
+                        transform: scale(0.9) rotateZ(-2deg) translateX(-25%);
+                        z-index: 2;
+                      }
+
+                      .doc-image-wrap.is--3 {
+                        transform: scale(0.9) rotateZ(3deg) translateX(-50%);
+                        z-index: 1;
+                      }
+
+                      /* Disable the left class transforms on mobile */
+                      .doc-image-parent.left .doc-image-wrap.is--1,
+                      .doc-image-parent.left .doc-image-wrap.is--2,
+                      .doc-image-parent.left .doc-image-wrap.is--3 {
+                        transform: none;
+                      }
+
+                      .doc-image-parent.left .doc-image-wrap.is--1 {
+                        transform: scale(0.9) rotateZ(3deg) translateX(0%);
+                      }
+
+                      .doc-image-parent.left .doc-image-wrap.is--2 {
+                        transform: scale(0.9) rotateZ(-2deg) translateX(-25%);
+                      }
+
+                      .doc-image-parent.left .doc-image-wrap.is--3 {
+                        transform: scale(0.9) rotateZ(3deg) translateX(-50%);
                       }
                     }
 
@@ -3146,14 +3178,30 @@
                       top: 1rem;
                       right: 1rem;
                       background: white;
-                      border: none;
-                      width: 40px;
-                      height: 40px;
+                      border: 2px solid #333;
+                      width: 48px;
+                      height: 48px;
                       border-radius: 50%;
                       cursor: pointer;
-                      font-size: 24px;
+                      font-size: 28px;
                       line-height: 1;
                       z-index: 1001;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      color: #333;
+                      font-weight: bold;
+                      transition: all 0.2s ease;
+                    }
+
+                    .service-modal-close:hover {
+                      background: #333;
+                      color: white;
+                      transform: scale(1.1);
+                    }
+
+                    .service-modal-close:active {
+                      transform: scale(0.95);
                     }
                   </style>
                 </div>
@@ -3234,13 +3282,14 @@
 
             <!-- Service Card Modal -->
             <div id="serviceModal" class="service-modal">
-              <button class="service-modal-close" onclick="closeServiceModal()">&times;</button>
+              <button class="service-modal-close" aria-label="Close modal">&times;</button>
               <img id="serviceModalImg" src="" alt="Service detail">
             </div>
 
             <script>
               // Service card modal functionality
               function openServiceModal(imageSrc) {
+                console.log('Opening modal with image:', imageSrc);
                 const modal = document.getElementById('serviceModal');
                 const modalImg = document.getElementById('serviceModalImg');
                 modalImg.src = imageSrc;
@@ -3248,7 +3297,11 @@
                 document.body.style.overflow = 'hidden';
               }
 
-              function closeServiceModal() {
+              function closeServiceModal(event) {
+                console.log('Closing modal');
+                if (event) {
+                  event.stopPropagation();
+                }
                 const modal = document.getElementById('serviceModal');
                 modal.classList.remove('active');
                 document.body.style.overflow = '';
@@ -3256,22 +3309,40 @@
 
               // Add click handlers to service cards
               document.addEventListener('DOMContentLoaded', function() {
+                console.log('Setting up service card click handlers');
                 const serviceCards = document.querySelectorAll('.doc-image-wrap');
-                serviceCards.forEach(card => {
-                  card.addEventListener('click', function() {
-                    const img = this.querySelector('img');
-                    if (img) {
+                console.log('Found', serviceCards.length, 'service cards');
+
+                serviceCards.forEach((card, index) => {
+                  card.addEventListener('click', function(e) {
+                    console.log('Card', index + 1, 'clicked');
+                    const img = this.querySelector('.u-img-cover');
+                    if (img && img.src) {
+                      console.log('Found image:', img.src);
                       openServiceModal(img.src);
+                    } else {
+                      console.log('No image found in card', index + 1);
                     }
                   });
+                  card.style.cursor = 'pointer';
                 });
 
+                // Close button handler
+                const closeBtn = document.querySelector('.service-modal-close');
+                if (closeBtn) {
+                  closeBtn.addEventListener('click', closeServiceModal);
+                  console.log('Close button handler added');
+                }
+
                 // Close modal on background click
-                document.getElementById('serviceModal').addEventListener('click', function(e) {
-                  if (e.target === this) {
-                    closeServiceModal();
-                  }
-                });
+                const modal = document.getElementById('serviceModal');
+                if (modal) {
+                  modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                      closeServiceModal();
+                    }
+                  });
+                }
 
                 // Close modal on Escape key
                 document.addEventListener('keydown', function(e) {
