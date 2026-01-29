@@ -1235,7 +1235,7 @@ textarea.w-select {
 }
 @font-face {
   font-family: "Six Caps";
-  src: url(https://github.com/R2-Engineering/R2-Engineering.github.io/blob/main/fonts/SixCaps.woff2)
+  src: url(https://raw.githubusercontent.com/R2-Engineering/R2-Engineering.github.io/refs/heads/main/fonts/SixCaps.woff2)
     format("woff2");
   font-weight: 700;
   font-style: normal;
