@@ -1227,15 +1227,6 @@ textarea.w-select {
 .wf-layout-layout {
   display: grid;
 }
-@font-face {
-  font-family: "Six Caps";
-  src: url(https://raw.githubusercontent.com/R2-Engineering/R2-Engineering.github.io/refs/heads/main/fonts/SixCaps.woff2)
-    format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --_typography---paragraph-body--font-family: var(--_typography---fonts--body);
   --_colors---neutral--black: #1d1c1a;
