@@ -3071,6 +3071,22 @@
                       z-index: 3;
                     }
 
+                    /* Mobile adjustments - reduce overlap so all 3 cards are visible */
+                    @media (max-width: 767px) {
+                      :root {
+                        --card-1-init: scale(0.85) rotateZ(3deg) translateX(0%);
+                        --card-1-end: scale(0.8) rotateZ(-3deg) translateX(-35%);
+                        --card-2-init: scale(0.85) rotateZ(-3deg) translateX(0%);
+                        --card-2-end: scale(0.85) rotateZ(3deg) translateX(-35%);
+                        --card-3-init: scale(0.85) rotateZ(-3deg) translateX(0%);
+                        --card-3-end: scale(0.85) rotateZ(3deg) translateX(-35%) translateY(3%);
+                      }
+
+                      .doc-image-wrap {
+                        cursor: pointer;
+                      }
+                    }
+
                     @media (hover: hover) {
                       .doc-image-wrap.is--1:hover {
                         transform: scale(1.5) rotateZ(0deg) translateX(20%);
@@ -3100,6 +3116,44 @@
                         opacity: 0.5;
                         transform: translateX(10%) rotateZ(6deg) scale(0.9);
                       }
+                    }
+
+                    /* Service card modal styles */
+                    .service-modal {
+                      display: none;
+                      position: fixed;
+                      inset: 0;
+                      background-color: rgba(0, 0, 0, 0.95);
+                      z-index: 1000;
+                      justify-content: center;
+                      align-items: center;
+                      padding: 1rem;
+                    }
+
+                    .service-modal.active {
+                      display: flex;
+                    }
+
+                    .service-modal img {
+                      max-width: 100%;
+                      max-height: 100%;
+                      object-fit: contain;
+                      border-radius: 0.5rem;
+                    }
+
+                    .service-modal-close {
+                      position: absolute;
+                      top: 1rem;
+                      right: 1rem;
+                      background: white;
+                      border: none;
+                      width: 40px;
+                      height: 40px;
+                      border-radius: 50%;
+                      cursor: pointer;
+                      font-size: 24px;
+                      line-height: 1;
+                      z-index: 1001;
                     }
                   </style>
                 </div>
@@ -3177,6 +3231,56 @@
                 </div>
               </div>
             </div>
+
+            <!-- Service Card Modal -->
+            <div id="serviceModal" class="service-modal">
+              <button class="service-modal-close" onclick="closeServiceModal()">&times;</button>
+              <img id="serviceModalImg" src="" alt="Service detail">
+            </div>
+
+            <script>
+              // Service card modal functionality
+              function openServiceModal(imageSrc) {
+                const modal = document.getElementById('serviceModal');
+                const modalImg = document.getElementById('serviceModalImg');
+                modalImg.src = imageSrc;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+              }
+
+              function closeServiceModal() {
+                const modal = document.getElementById('serviceModal');
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+              }
+
+              // Add click handlers to service cards
+              document.addEventListener('DOMContentLoaded', function() {
+                const serviceCards = document.querySelectorAll('.doc-image-wrap');
+                serviceCards.forEach(card => {
+                  card.addEventListener('click', function() {
+                    const img = this.querySelector('img');
+                    if (img) {
+                      openServiceModal(img.src);
+                    }
+                  });
+                });
+
+                // Close modal on background click
+                document.getElementById('serviceModal').addEventListener('click', function(e) {
+                  if (e.target === this) {
+                    closeServiceModal();
+                  }
+                });
+
+                // Close modal on Escape key
+                document.addEventListener('keydown', function(e) {
+                  if (e.key === 'Escape') {
+                    closeServiceModal();
+                  }
+                });
+              });
+            </script>
           </div>
         </section>
         <section id="capabilities" class="section u-mode-accent1">
