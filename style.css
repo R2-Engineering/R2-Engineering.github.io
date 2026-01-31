@@ -71,7 +71,7 @@ h1 {
 .caps-heading {
     font-family: var(--font-heading);
     font-size: clamp(4rem, 10vw, 8rem);
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     line-height: 0.9;
     font-weight: 800;
@@ -465,59 +465,38 @@ dialog::backdrop {
     color: var(--accent-text);
     padding: 6rem 0;
 }
-
-.capabilities-section .caps-heading {
+.capabilities-section .section-heading {
     font-size: 7rem;
-    letter-spacing: 2px;
+    font-family: var(--font-heading);
     color: white;
-    line-height: 1;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    padding-bottom: 2rem;
     margin-bottom: 3rem;
+    text-transform: uppercase;
 }
 
-.capability-card h2 {
-    font-family: var(--font-primary);
-    font-size: clamp(0.65rem, 1.2vw, 0.85rem);
-    font-weight: 600;
+.capabilities-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.capability-link {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 8vw, 6rem);
+    letter-spacing: 1px;
     color: white;
     text-transform: uppercase;
-    margin: 0;
-    letter-spacing: 0.05em;
-    line-height: 1;
-}
-
-
-.capabilities-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3rem;
-}
-
-.capability-card {
-    background-color: rgba(255, 255, 255, 0.15);
-    padding: clamp(0.35rem, 0.8vw, 0.5rem) clamp(0.8rem, 2vw, 1.2rem);
-    border-radius: 50px;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 8px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    text-align: center;
-    border: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+    margin: 0;
 }
 
-.capability-card:hover {
-    background-color: rgba(255, 255, 255, 0.25);
+.capability-link:hover {
+    color: rgba(255, 255, 255, 0.7);
     transform: translateY(-2px);
-}
-
-.capability-card h2 {
-    margin-bottom: 1rem;
-}
-
-.card-hint {
-    font-size: 0.8rem;
-    opacity: 0.7;
-    font-style: italic;
 }
 
 .cap-col h3 {
@@ -580,16 +559,6 @@ dialog::backdrop {
     flex-wrap: wrap;
 }
 
-.footer-badge {
-    min-width: clamp(6rem, 3.571vw + 5.286rem, 8.5rem);
-}
-
-.footer-logo {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
 .footer-info {
     display: flex;
     flex-direction: column;
@@ -623,18 +592,16 @@ dialog::backdrop {
     display: flex;
     align-items: center;
     gap: 2rem;
-    font-family: var(--font-heading);
-    font-size: clamp(3.8rem, 8.143vw + 2.17144rem, 9.5rem);
-    line-height: 1;
-    text-transform: uppercase;
-    color: var(--accent-text);
     text-decoration: none;
-    cursor: pointer;
     transition: color 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-
 }
 
-.footer-cta-button:hover {
+.footer-cta-button .caps-heading {
+    margin-bottom: 0;
+    color: var(--accent-text);
+}
+
+.footer-cta-button:hover .caps-heading {
     color: #2D5016;
 }
 
@@ -654,6 +621,11 @@ dialog::backdrop {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--accent-text);
+}
+
+.footer-cta-button:hover .footer-button-icon-wrap {
+    color: #2D5016;
 }
 
 .footer-icon {
@@ -676,10 +648,6 @@ dialog::backdrop {
 
     .footer-right {
         width: 100%;
-    }
-
-    .footer-cta-button {
-        font-size: clamp(2.5rem, 8vw, 4rem);
     }
 }
 
@@ -843,11 +811,12 @@ dialog::backdrop {
 
 .ways-section .section-heading {
     font-family: var(--font-heading);
-    font-size: 7rem;
+    font-size: clamp(4rem, 10vw, 8rem);
     color: var(--accent-color);
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 3rem;
+    letter-spacing: 2px;
 }
 
 .service-cards-container {
@@ -939,10 +908,6 @@ dialog::backdrop {
 
 /* Mobile optimizations */
 @media (max-width: 768px) {
-    .ways-section .section-heading {
-        font-size: 3rem;
-    }
-
     .service-cards-container {
         flex-direction: column;
         gap: 1.5rem;
@@ -1118,5 +1083,40 @@ dialog::backdrop {
 }
 
 .pfizer-hover:hover::after {
+    opacity: 1;
+}
+/* Electrical hover image */
+.electrical-hover {
+    position: relative;
+    cursor: pointer;
+    color: #2D5016;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: #2D5016;
+}
+
+.electrical-hover::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 200px;
+    background-image: url('images/electrical.JPG');
+    background-size: cover;
+    background-position: center;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    margin-top: 10px;
+}
+
+.electrical-hover:hover::after {
     opacity: 1;
 }
