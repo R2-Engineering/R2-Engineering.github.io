@@ -845,7 +845,7 @@ dialog::backdrop {
 }
 
 .service-card:nth-child(2) {
-    transform: rotate(-4deg);
+    transform: rotate(-4deg) translateY(50px);;
     z-index: 2;
 }
 
