@@ -71,6 +71,7 @@ h1 {
 .caps-heading {
     font-family: var(--font-heading);
     font-size: clamp(4rem, 10vw, 8rem);
+    letter-spacing: 2px;
     text-transform: uppercase;
     line-height: 0.9;
     font-weight: 800;
@@ -467,6 +468,7 @@ dialog::backdrop {
 
 .capabilities-section .caps-heading {
     font-size: 7rem;
+    letter-spacing: 2px;
     color: white;
     line-height: 1;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -596,8 +598,8 @@ dialog::backdrop {
 
 .footer-linkedin {
     color: var(--accent-text);
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
     display: block;
     transition: opacity 0.3s;
 }
@@ -973,4 +975,148 @@ dialog::backdrop {
     to {
         stroke-dashoffset: 0;
     }
+}
+
+/* Jeep hover image */
+.jeep-hover {
+    position: relative;
+    cursor: pointer;
+    color: #2D5016;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: #2D5016;
+}
+
+.jeep-hover::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 200px;
+    background-image: url('images/jeep.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    margin-top: 10px;
+}
+
+.jeep-hover:hover::after {
+    opacity: 1;
+}
+
+/* Grandpa hover image */
+.grandpa-hover {
+    position: relative;
+    cursor: pointer;
+    color: #2D5016;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: #2D5016;
+}
+
+.grandpa-hover::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 200px;
+    background-image: url('images/grandpa.jpeg');
+    background-size: cover;
+    background-position: center;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    margin-top: 10px;
+}
+
+.grandpa-hover:hover::after {
+    opacity: 1;
+}
+
+/* Lamp hover image */
+.lamp-hover {
+    position: relative;
+    cursor: pointer;
+    color: #2D5016;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: #2D5016;
+}
+
+.lamp-hover::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 200px;
+    background-image: url('images/lamp.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    margin-top: 10px;
+}
+
+.lamp-hover:hover::after {
+    opacity: 1;
+}
+
+/* Pfizer hover image */
+.pfizer-hover {
+    position: relative;
+    cursor: pointer;
+    color: #2D5016;
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: #2D5016;
+}
+
+.pfizer-hover::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 200px;
+    background-image: url('images/pfizer.jpg');
+    background-size: cover;
+    background-position: center;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+    margin-top: 10px;
+}
+
+.pfizer-hover:hover::after {
+    opacity: 1;
 }
