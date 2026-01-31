@@ -468,8 +468,7 @@
             <div class="container">
                 <h2 class="section-heading">CAPABILITIES</h2>
                 <div class="capabilities-links">
-                    <h2 class="capability-link" onclick="openModal('modal-help-with')">THINGS I CAN HELP WITH</h2>
-                    <h2 class="capability-link" onclick="openModal('modal-capabilities')">WHAT I CAN DO</h2>
+                    <h2 class="capability-link" onclick="openModal('modal-help-with')">SERVICES & EXPERTISE</h2>
                     <h2 class="capability-link" onclick="openModal('modal-certifications')">CERTIFICATIONS</h2>
                 </div>
             </div>
@@ -504,7 +503,7 @@
             <div class="modal-content">
                 <button class="close-btn" onclick="closeModal('modal-help-with')">×</button>
                 <div class="modal-header">
-                    <h2 class="modal-title">THINGS I CAN HELP WITH</h2>
+                    <h2 class="modal-title">SERVICES & EXPERTISE</h2>
                     <br>
                 </div>
                 <div class="modal-body">
@@ -518,26 +517,47 @@
                                 <li>Security controls implementation</li>
                                 <li>CUI data protection workflows</li>
                                 <li>Third-party assessment coordination</li>
+                                <li>Security posture assessment</li>
+                                <li>Blind Spot Assessment</li>
                             </ul>
                         </div>
                         <div>
-                            <h5>Google Workspace</h5>
+                            <h5>Google Workspace & GCP</h5>
                             <ul>
-                                <li>Workspace migrations</li>
+                                <li>Workspace administration and migrations</li>
+                                <li>Google Cloud Platform (configuration, security)</li>
                                 <li>Workspace security and configurations</li>
                                 <li>Google Apps Script automation</li>
                                 <li>Drive & Shared Drives architecture</li>
+                                <li>BigQuery</li>
+                                <li>Google Security Operations (formerly Chronicle SIEM)</li>
                             </ul>
                         </div>
                         <div>
+                            <h5>Microsoft 365 & Azure</h5>
+                            <ul>
+                                <li>Microsoft 365 administration (E3, E5, GCC)</li>
+                                <li>Microsoft Sentinel deployment and optimization</li>
+                                <li>Microsoft Purview implementation</li>
+                                <li>Defender Suite configuration</li>
+                                <li>Entra ID / Conditional Access</li>
+                                <li>Global Secure Access</li>
+                                <li>Intune / Endpoint Management</li>
+                                <li>SharePoint design, setup, and custom SPFx development</li>
+                                <li>Azure Functions and Logic Apps</li>
+                                
+                            </ul>
+                        </div>                        
+                        <div>
                             <h5>Automation & Scripting</h5>
                             <ul>
-                                <li>PowerShell for M365 & Azure</li>
+                                <li>PowerShell automation for M365 & Azure</li>
                                 <li>Python for automation & APIs</li>
-                                <li>KQL (Kusto Query Language)</li>
+                                <li>KQL & SQL</li>
                                 <li>Power Automate</li>
                                 <li>Custom integration development</li>
                                 <li>Compliance reporting automation</li>
+                                <li>API integrations</li>
                             </ul>
                         </div>
                         <div>
@@ -549,6 +569,9 @@
                                 <li>Server migrations & decommissioning</li>
                                 <li>Wireless network design and installation</li>
                                 <li>Security camera system design and installation</li>
+                                <li>Meraki networking</li>
+                                <li>BCDR solutions</li>
+                                <li>Disaster Recovery planning</li>
                             </ul>
                         </div>
                         <div>
@@ -557,9 +580,22 @@
                                 <li>Fractional CTO services</li>
                                 <li>MSP audit & vendor accountability</li>
                                 <li>Technology roadmap planning</li>
-                                <li>Security posture assessment</li>
-                                <li>Blind Spot Assessment</li>
                                 <li>Independent technical due diligence</li>
+                                <li>Project Management</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5>Specialized Experience</h5>
+                            <ul>
+                                <li>Industrial automation (PLCs, HMIs)</li>
+                                <li>PLC and HMI Validation</li>
+                                <li>Siemens S7</li>
+                                <li>Siemens SIMATIC APT</li>
+                                <li>Siemens STEP 7-Micro/WIN32</li>
+                                <li>TISOFT TI505</li>
+                                <li>Wonderware</li>
+                                <li>Rockwell RSLogix 500</li>
+
                             </ul>
                         </div>
                     </div>
@@ -567,69 +603,7 @@
             </div>
         </dialog>
 
-        <dialog id="modal-capabilities" class="project-modal" onclick="closeModalOnBackdrop(event, this)">
-            <div class="modal-content">
-                <button class="close-btn" onclick="closeModal('modal-capabilities')">×</button>
-                <div class="modal-header">
-                    <h2 class="modal-title">MY CAPABILITIES</h2>
-                    <br>
-                </div>
-                <div class="modal-body">
-                    <div class="grid-2-col">
-                        <div>
-                            <h5>Microsoft Ecosystem</h5>
-                            <ul>
-                                <li>Microsoft 365 (E3, E5, GCC)</li>
-                                <li>Azure (Functions, Logic Apps, Arc)</li>
-                                <li>Microsoft Sentinel</li>
-                                <li>Microsoft Purview</li>
-                                <li>Defender Suite</li>
-                                <li>Entra ID / Conditional Access</li>
-                                <li>Global Secure Access</li>
-                                <li>Intune / Endpoint Management</li>
-                                <li>SharePoint Design and Setup</li>
-                                <li>SharePoint Custom SPFx</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5>Google Ecosystem</h5>
-                            <ul>
-                                <li>Google Workspace Administration</li>
-                                <li>Google Cloud Platform (Configuration, Security)</li>
-                                <li>Google Apps Script Automation</li>
-                                <li>Migrations</li>
-                                <li>Big Query</li>
-                                <li>Google Security Operations (formerly Chronicle SIEM)</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5>Development & Automation</h5>
-                            <ul>
-                                <li>PowerShell</li>
-                                <li>Python</li>
-                                <li>KQL and SQL</li>
-                                <li>Google Apps Script</li>
-                                <li>Power Automate</li>
-                                <li>API Integrations</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h5>Infrastructure & Other</h5>
-                            <ul>
-                                <li>Security Camera Solutions</li>
-                                <li>Meraki Networking</li>
-                                <li>NIST Compliance</li>
-                                <li>BCDR Solutions</li>
-                                <li>Disaster Recovery Planning</li>
-                                <li>Project Management</li>
-                                <li>ClickUp Configuration and Automation</li>
-                                <li>Industrial Automation (PLCs, HMIs)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </dialog>
+        
 
         <dialog id="modal-certifications" class="project-modal" onclick="closeModalOnBackdrop(event, this)">
             <div class="modal-content">
@@ -670,15 +644,19 @@
                         </div>
                         <div>
                             <h5>GRC Academy CMMC Overview Course (06/2024)</h5>
+                            <p>A comprehensive CMMC certification course covering Federal Contract Information (FCI), Controlled Unclassified Information (CUI), all 110 NIST 800-171 security requirements, DFARS compliance clauses, assessment methodology, the three CMMC levels, scoping strategies, self-assessment vs. third-party certification paths, and MSP selection, designed for defense contractors preparing for DoD compliance requirements.</p>
                         </div>
                         <div>
                             <h5>InfoSec Cybersecurity Risk Management Framework Certificate (03/2024)</h5>
+                            <p>A 3-course specialization covering NIST Risk Management Framework (RMF) fundamentals including risk identification, assessment and response, all 110 NIST 800-171 security requirements, System Security Plan (SSP) development, Plans of Action and Milestones (POAM), and Body of Evidence (BOE) creation for implementing organizational cybersecurity programs.</p>
                         </div>
                         <div>
                             <h5>Google Cybersecurity Professional Certificate (02/2024)</h5>
+                            <p>An 8-course Google certification covering cybersecurity fundamentals including risk assessment, threat mitigation, SIEM tools, Python, Linux, SQL, Intrusion Detection Systems (IDS), network security, and incident response, providing 170+ hours of hands-on training toward CompTIA Security+ certification and entry-level cybersecurity analyst roles.</p>
                         </div>
                         <div>
                             <h5>Microsoft Certified Professional (03/2003)</h5>
+                            <p>Microsoft certification covering Windows 2000 Professional installation, configuration, hardware troubleshooting, resource administration, file and folder management, print device management, system performance optimization, security implementation, network protocols and services, and desktop environment configuration for IT professionals supporting Windows environments.</p>
                         </div>
                     </div>
                 </div>
