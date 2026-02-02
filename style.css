@@ -1208,11 +1208,11 @@ dialog::backdrop {
 .ryan-hover {
     position: relative;
     cursor: pointer;
-    color: #2D5016;
+    color: #2d2d2d;
     font-weight: bold;
     text-decoration: underline;
     text-decoration-style: dotted;
-    text-decoration-color: #2D5016;
+    text-decoration-color: #2d2d2d;
 }
 
 .ryan-hover::after {
