@@ -149,7 +149,7 @@
                         </p>
                         <br>
                         <p><span class="grandpa-hover">My grandfather</span>
-                            was an electrician. He was my guy. When I was a junior on
+                            was an electrician. He was my guy. When I was a junior in
                             high school, I enrolled in an electro-mechanical tech
                             program at our community college and spent half of every
                             school day there for the next 2 years. Did you know that
@@ -312,65 +312,61 @@
                             <br>
 
                 <div class="projects-grid">
-                    <!-- Project 1: Bodwe -->
-                    <article class="project-item" onclick="openModal('modal-bodwe')">
+                    <!-- Project 1: CMMC Level 2 Certification -->
+                    <article class="project-item" onclick="openModal('modal-cmmc')">
                         <div class="project-image">
-                            <!-- PNG overlay layer -->
-                            <img loading="lazy"
-                                src="https://raw.githubusercontent.com/R2-Engineering/R2-Engineering.github.io/refs/heads/main/images/bodwe_we3.png"
-                                alt="Bodwe Group overlay" class="project-image-overlay" />
-                            <!-- GIF layer -->
                             <img width="Auto" fetchpriority="" loading="lazy"
-                                src="https://raw.githubusercontent.com/R2-Engineering/R2-Engineering.github.io/refs/heads/main/images/bodwe_fire.gif"
-                                alt="Bodwe Group" class="project-image" />
-                            
+                                src="./images/CMMC_Level2.png"
+                                alt="CMMC Level 2 Certification"
+                                class="project-image" />
                         </div>
-                        <h3>Bodwe Group</h3>
+                        <h3>CMMC Level 2 Certification</h3>
                     </article>
 
                     <!-- Project 2 -->
-                    <article class="project-item" onclick="openModal('modal-grpl')">
+                    <article class="project-item" onclick="openModal('modal-gapps')">
                         <div class="project-image">
                             <img width="Auto" fetchpriority="" loading="lazy"
-                                src="https://raw.githubusercontent.com/R2-Engineering/R2-Engineering.github.io/91eb6879f32177bd87d97719423eac5b7b3ef953/images/GRPL_logo.png"
-                                alt="Grand Rapids Public Library" sizes="(max-width: 2000px) 100vw, 2000px"
+                                src="./images/linux_GSuite.png"
+                                alt="Google Workspace Migration" 
                                 class="project-image" />
                         </div>
-                        <h3>Grand Rapids Public Library</h3>
+                        <h3>Google Workspace Migration</h3>
                     </article>
 
                     <!-- Project 3 -->
-                    <article class="project-item" onclick="openModal('modal-kia')">
+                    <article class="project-item" onclick="openModal('modal-appscript')">
                         <div class="project-image">
                             <img width="Auto" fetchpriority="" loading="lazy"
-                                src="https://raw.githubusercontent.com/R2-Engineering/R2-Engineering.github.io/refs/heads/main/images/kiarts.jpg"
-                                alt="Kiarts" sizes="(max-width: 2000px) 100vw, 2000px" class="project-image" />
+                                src="./images/Apps-Script.png"
+                                alt="Google Apps Script"
+                                class="project-image" />
                         </div>
-                        <h3>Kalamazoo Institute of Arts</h3>
+                        <h3>Google Apps Script</h3>
                     </article>
 
                     <!-- Project 4 -->
-                    <article class="project-item" onclick="openModal('modal-newmind')">
+                    <article class="project-item" onclick="openModal('modal-halo')">
                         <div class="project-image">
                             <img width="Auto" fetchpriority="" loading="lazy"
-                                src="https://raw.githubusercontent.com/R2-Engineering/R2-Engineering.github.io/refs/heads/main/images/newmind3.jpeg"
-                                alt="Newmind Group" class="project-image" />
+                                src="./images/halo.png"
+                                alt="HaloPSA to Zendesk" class="project-image" />
                         </div>
-                        <h3>Newmind Group</h3>
+                        <h3>Software Migration</h3>
                     </article>
                 </div>
             </div>
         </section>
 
         <!-- Project Modals -->
-        <dialog id="modal-bodwe" class="project-modal" onclick="closeModalOnBackdrop(event, this)">
+        <dialog id="modal-cmmc" class="project-modal" onclick="closeModalOnBackdrop(event, this)">
             <div class="modal-content">
-                <button class="close-btn" onclick="closeModal('modal-bodwe')">×</button>
+                <button class="close-btn" onclick="closeModal('modal-cmmc')">×</button>
                 <div class="modal-header">
-                    <h2 class="modal-title">BODWE GROUP</h2>
-                    <h3 class="modal-subtitle">Bodwe Achieves CMMC Level 2 Certification</h3>
+                    <h2>CMMC Level 2 Certification</h2>
                 </div>
                 <div class="modal-body">
+                    <br>
                     <p class="summary-text">I spent 18 months working with a professional services, architecture, and
                         design firm to completely overhaul their IT environment and achieve CMMC Level 2 (NIST 800-171)
                         certification. The result? We passed the third-party audit with zero remediation items.</p>
@@ -396,15 +392,14 @@
                 </div>
             </div>
         </dialog>
-        <dialog id="modal-grpl" class="project-modal" onclick="closeModalOnBackdrop(event, this)">
-            <div class="modal-content"><button class="close-btn" onclick="closeModal('modal-grpl')">×</button>
-                <h2>Grand Rapids Public Library</h2>
-                <p>Google Workspace Migration: I migrated a
-                                    large Michigan public library from
-                                    on-premise Linux servers to Google
-                                    Workspace. The project included email, docs,
-                                    and several aging servers that we were able
-                                    to decommission entirely. The migration went
+        <dialog id="modal-gapps" class="project-modal" onclick="closeModalOnBackdrop(event, this)">
+            <div class="modal-content">
+                <button class="close-btn" onclick="closeModal('modal-gapps')">×</button>
+                    <h2>Google Workspace Migration</h2>
+                    <br>
+                    <p>I migrated a large Michigan public library from
+                                    aging on-premise Linux servers to Google
+                                    Workspace. The project included email docs for 200 accounts. The migration went
                                     smoothly and modernized a significant chunk
                                     of their IT infrastructure. As a bonus, I
                                     set up the administrators with Google GAM
@@ -415,10 +410,11 @@
                                     when I surprised them with it.</p>
             </div>
         </dialog>
-        <dialog id="modal-kia" class="project-modal" onclick="closeModalOnBackdrop(event, this)">
-            <div class="modal-content"><button class="close-btn" onclick="closeModal('modal-kia')">×</button>
-                <h2>Kalamazoo Institute of Arts</h2>
-                <p>Custom Ticketing System: The Institute
+        <dialog id="modal-appscript" class="project-modal" onclick="closeModalOnBackdrop(event, this)">
+            <div class="modal-content"><button class="close-btn" onclick="closeModal('modal-appscript')">×</button>
+                <h2>Google Apps Script</h2>
+                <br>
+                <p>Custom Ticketing System: A Michigan art institution
                                     needed a simple ticketing system at the
                                     front desk, but commercial solutions were
                                     expensive overkill for their needs. After
@@ -434,10 +430,11 @@
             </div>
         </dialog>
     
-         <dialog id="modal-newmind" class="project-modal" onclick="closeModalOnBackdrop(event, this)">
-            <div class="modal-content"><button class="close-btn" onclick="closeModal('modal-newmind')">×</button>
-                <h2>Newmind Group</h2>
-                <p>HaloPSA Implementation: Newmind was moving
+         <dialog id="modal-halo" class="project-modal" onclick="closeModalOnBackdrop(event, this)">
+            <div class="modal-content"><button class="close-btn" onclick="closeModal('modal-halo')">×</button>
+                <h2>Software Database Migration</h2>
+                <br>
+                <p>HaloPSA Implementation: An IT managed services provider was moving
                                     to a new Professional Services Automation
                                     platform (HaloPSA) to streamline billing,
                                     accounting, service desk ticketing,
@@ -800,9 +797,9 @@
 
         // Modal Controls with Keyboard Navigation
         const allModals = [
-            'modal-bodwe',
-            'modal-grpl',
-            'modal-kia',
+            'modal-cmmc',
+            'modal-gapps',
+            'modal-appscript',
             'modal-help-with',
             'modal-capabilities',
             'modal-certifications'
