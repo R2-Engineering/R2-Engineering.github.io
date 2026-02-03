@@ -445,6 +445,15 @@ dialog::backdrop {
     text-transform: uppercase;
     margin-bottom: 1rem;
     color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.grid-2-col h5 img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
 }
 
 .grid-2-col ul {
@@ -464,6 +473,44 @@ dialog::backdrop {
     position: absolute;
     left: 0;
     font-weight: bold;
+}
+
+/* Service Category Color Coding */
+.grid-2-col > div {
+    padding-left: 1.2rem;
+    transition: border-color 0.3s ease;
+}
+
+.category-security {
+    border-left: 3px solid #e74c3c;
+}
+
+.category-google {
+    border-left: 3px solid #4285f4;
+}
+
+.category-microsoft {
+    border-left: 3px solid #00a4ef;
+}
+
+.category-automation {
+    border-left: 3px solid #9b59b6;
+}
+
+.category-infrastructure {
+    border-left: 3px solid #1abc9c;
+}
+
+.category-strategy {
+    border-left: 3px solid var(--accent-color);
+}
+
+.category-specialized {
+    border-left: 3px solid #95a5a6;
+}
+
+.category-software {
+    border-left: 3px solid #f39c12;
 }
 
 /* Capabilities Section - Hunter Green Background */
