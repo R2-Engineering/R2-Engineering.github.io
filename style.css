@@ -1183,7 +1183,7 @@ dialog::backdrop {
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translateX(-5%);
+    transform: translateX(-10%);
     width: 300px;
     height: 200px;
     background-image: url('images/newmind_team2.jpg');
