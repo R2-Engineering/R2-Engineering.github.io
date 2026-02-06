@@ -353,6 +353,16 @@
                         </div>
                         <h3>Software Migration</h3>
                     </article>
+
+                    <!-- Project 5 -->
+                    <article class="project-item" onclick="openModal('modal-SPFx')">
+                        <div class="project-image">
+                            <img width="Auto" fetchpriority="" loading="lazy"
+                                src="./images/SPFx.png"
+                                alt="PDF Watermarking Solution" class="project-image" />
+                        </div>
+                        <h3>Automated PDF Watermarking </h3>
+                    </article>
                 </div>
             </div>
         </section>
@@ -366,17 +376,21 @@
                 </div>
                 <div class="modal-body">
                     <br>
-                    <p class="summary-text">I spent 18 months working with a professional services, architecture, and
-                        design firm to completely overhaul their IT environment and achieve CMMC Level 2 (NIST 800-171)
-                        certification. The result? We passed the third-party audit with zero remediation items.</p>
+                    <p class="summary-text">I spent 18 months working with a professional services, architecture, and design firm to completely 
+                        overhaul their IT environment and achieve CMMC Level 2 (NIST 800-171) certification while maintaining business operations throughout 
+                        the transformation. The result? We passed the third-party audit with zero remediation items.</p>
 
                     <div class="grid-2-col">
                         <div>
-                            <h5>Microsoft 365 & Cloud Migration</h5>
+                            <h5>Microsoft 365 & Azure Cloud</h5>
                             <ul>
                                 <li>Migrated 200 users from M365 Commercial to GCC</li>
+                                <li>Entra ID identity management setup and deployment</li>
+                                <li>Azure Sentinel configuration including: data connector configuration for all M365 and disparate systems, 
+                                    custom reports and dashboards for compliance monitoring</li>
                                 <li>Built complete SharePoint environment with 6 departmental hub sites</li>
                                 <li>Migrated 20TB of file storage from on-prem servers to SharePoint</li>
+                                <li>FedRamp approved backup solution for server workloads and M365 configured and implemented</li>
                             </ul>
                         </div>
                         <div>
@@ -384,7 +398,18 @@
                             <ul>
                                 <li>Deployed Microsoft Intune across 400+ devices</li>
                                 <li>Implemented Microsoft Defender for all users</li>
-                                <li>Configured and deployed BitLocker encryption</li>
+                                <li>Entra Global Secure Access configured and deployed to all users to eliminate VPN dependency</li>
+                                <li>Implemented Microsoft Defender Vulnerability Management and remediated vulnerabilities</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5>Governance</h5>
+                            <ul>
+                                <li>NIST 800-171 policy and procedure documentation creation</li>
+                                <li>Created a meeting structure, cadence, and agenda for all required weekly, monthly, quarterly, and annual meetings</li>
+                                <li>Microsoft Purview configuration with custom reports for compliance monitoring</li>
+                                <li>Acted as the lead technical resource for the official CMMC Level 2 audit, working directly with the auditors to 
+                                    answer all technical questions, provided all technical control verifications needed to satisfy the audit requirements</li>
                             </ul>
                         </div>
                     </div>
@@ -456,6 +481,22 @@
                                     handle the migration. Go Live was a success
                                     with zero downtime - everyone stayed
                                     operational throughout the entire process.</p>
+            </div>
+        </dialog>
+                <dialog id="modal-SPFx" class="project-modal" onclick="closeModalOnBackdrop(event, this)">
+            <div class="modal-content">
+                <button class="close-btn" onclick="closeModal('modal-SPFx')">×</button>
+                    <h2>Automated PDF Watermarking</h2>
+                    <br>
+                    <p>A Department of Defense contractor needed to watermark hundreds of CUI (Controlled Unclassified Information) PDFs with proper headers, 
+                        footers, and classification markings. Commercial solutions cost thousands of dollars annually—well beyond their budget.
+                        I developed a custom SharePoint extension that automated the entire process. Users simply select PDFs in their document library and click one button. 
+                        Behind the scenes, an Azure Function applies the correct watermarks, classification labels, and sensitivity markings based on the document type. 
+                        The system also archives originals and handles batch processing of multiple files.
+                        <br>
+                        <br>
+                        Results: Eliminated 5-10 minutes of manual work per document. The contractor now processes hundreds of PDFs monthly with zero manual effort and 
+                        perfect consistency with DOD marking requirements.</p>
             </div>
         </dialog>
 
