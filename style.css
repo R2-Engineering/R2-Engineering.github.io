@@ -814,27 +814,21 @@ dialog::backdrop {
     animation-delay: 3s;
 }
 
-/* Fade out logo wrapper on scroll */
-.logo-wrapper {
-    animation: fade-on-scroll linear forwards;
-    animation-timeline: scroll();
-    animation-range: 0vh 30vh;
-}
-
-@keyframes fade-on-scroll {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-/* Fallback for browsers that don't support animation-timeline */
-@supports not (animation-timeline: scroll()) {
+/* Fade out logo wrapper on scroll — only apply when scroll timeline is supported */
+@supports (animation-timeline: scroll()) {
     .logo-wrapper {
-        /* No scroll animation, just keep it visible */
-        opacity: 1;
+        animation: fade-on-scroll linear forwards;
+        animation-timeline: scroll();
+        animation-range: 0vh 30vh;
+    }
+
+    @keyframes fade-on-scroll {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
     }
 }
 
