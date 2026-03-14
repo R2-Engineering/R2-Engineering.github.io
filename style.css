@@ -159,7 +159,7 @@ h1 {
 
 /* Hero Section */
 .hero-section {
-    min-height: 90vh;
+    min-height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -252,6 +252,17 @@ h1 {
     }
     100% {
         transform: rotate(720deg); /* Two full rotations */
+    }
+}
+
+/* Hide spinning logos and emphasis headings on mobile */
+@media (max-width: 768px) {
+    .spinning-logo-container {
+        display: none;
+    }
+
+    .header-col {
+        display: none;
     }
 }
 
@@ -723,6 +734,11 @@ dialog::backdrop {
 
 /* Responsive Navigation */
 @media (max-width: 768px) {
+    .hero-section {
+        min-height: unset;
+        padding: 2rem;
+    }
+
     .pill-nav {
         top: 1rem;
         right: 1rem;
